@@ -1,0 +1,4 @@
+/node_modules
+.env
+open.bat
+start.bat
