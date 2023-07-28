@@ -110,7 +110,7 @@ exports.validateUser = (_bodyReq) => {
     contact_name: Joi.string().min(2).max(300).required(),
     contact_phone: Joi.string().min(2).max(300).required(),
     contact_family_relationship: Joi.string().min(2).max(300).required(),
-    img_url: Joi.string().min(2).max(300).required(),
+    img_url: Joi.string().min(2).max(300).allow(null, ""),
   });
   return joiSchema.validate(_bodyReq);
 };
