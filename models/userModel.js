@@ -25,6 +25,7 @@ const userSchema = new mongoose.Schema({
   disability_intellectual: Boolean,
   disability_developmental: Boolean,
   disability_mentally_challenged: Boolean,
+  disability_on_the_spectrum: Boolean,
   type_of_disability_info: String,
   independent_disability: String,
   interest: String,
@@ -40,6 +41,7 @@ const userSchema = new mongoose.Schema({
   seek_for_disability_intellectual: Boolean,
   seek_for_disability_developmental: Boolean,
   seek_for_disability_mentally_challenged: Boolean,
+  seek_for_disability_on_the_spectrum: Boolean,
   seek_for_type_of_disability_info: String,
   questions_on_your_own: String,
   additional_notes: String,
@@ -86,6 +88,7 @@ exports.validateUser = (_bodyReq) => {
     disability_intellectual: Joi.boolean().required(),
     disability_developmental: Joi.boolean().required(),
     disability_mentally_challenged: Joi.boolean().required(),
+    disability_on_the_spectrum: Joi.boolean().required(),
     type_of_disability_info: Joi.string().min(2).max(300).required(),
     independent_disability: Joi.string().min(2).max(300).required(),
     interest: Joi.string().min(2).max(300).allow(null, ""),
@@ -101,6 +104,7 @@ exports.validateUser = (_bodyReq) => {
     seek_for_disability_intellectual: Joi.boolean().required(),
     seek_for_disability_developmental: Joi.boolean().required(),
     seek_for_disability_mentally_challenged: Joi.boolean().required(),
+    seek_for_disability_on_the_spectrum: Joi.boolean().required(),
     seek_for_type_of_disability_info: Joi.string()
       .min(2)
       .max(300)

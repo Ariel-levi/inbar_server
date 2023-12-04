@@ -59,7 +59,7 @@ router.get("/usersList", authAdmin, async (req, res) => {
 //   });
 // });
 
-// // user info
+// user info
 // router.get("/myInfo", auth, async (req, res) => {
 //   try {
 //     let data = await UserModel.findOne(
@@ -72,6 +72,21 @@ router.get("/usersList", authAdmin, async (req, res) => {
 //     return res.status(500).json(err);
 //   }
 // });
+
+// admin user info
+router.get("/myInfo", authAdmin, async (req, res) => {
+  try {
+    let data = await AdminUserModel.findOne(
+      { _id: req.tokenData._id },
+      { password: 0 }
+    );
+    console.log(data);
+    res.json(data);
+  } catch (err) {
+    console.log(err);
+    return res.status(500).json(err);
+  }
+});
 
 // //verify account
 // router.get("/verify-email", async (req, res) => {

@@ -27,7 +27,10 @@ exports.authAdmin = (req, res, next) => {
   try {
     let decodeToken = jwt.verify(token, process.env.JWT_SECRET);
     // check if user role is admin
-    if (decodeToken.role == ROLES.ADMIN) {
+    if (
+      decodeToken.role == ROLES.ADMIN ||
+      decodeToken.role == ROLES.SYSTEM_ADMIN
+    ) {
       req.tokenData = decodeToken;
       next();
     } else {
